@@ -668,10 +668,10 @@ class AWSAuthConnection(object):
         self.proxy_pass = proxy_pass
         if 'http_proxy' in os.environ and not self.proxy:
             pattern = re.compile(
-                '(?:http://)?'
-                '(?:(?P<user>[\w\-\.]+):(?P<pass>.*)@)?'
-                '(?P<host>[\w\-\.]+)'
-                '(?::(?P<port>\d+))?'
+                r'(?:http://)?'
+                r'(?:(?P<user>[\w\-\.]+):(?P<pass>.*)@)?'
+                r'(?P<host>[\w\-\.]+)'
+                r'(?::(?P<port>\d+))?'
             )
             match = pattern.match(os.environ['http_proxy'])
             if match:
